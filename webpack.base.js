@@ -1,14 +1,13 @@
 /**
- * @component webpack.config
- * @description
+ * @component webpack.base.js
+ * @description 基础环境
  * @time 2018/3/6
  * @author JOKER XU
  */
-
+const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html
-const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除dist
 
 module.exports = {
   entry: {
@@ -51,7 +50,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin({
       filename: "static/css/[name].min.css",
       allChunks: true
@@ -66,5 +64,12 @@ module.exports = {
         minifyURLs: true,
       }
     }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    // 	name: 'common',
+    // 	minChunks (module) {
+    // 		return module.context &&
+    // 			module.context.indexOf('node_modules') >= 0;
+    // 	}
+    // }),
   ]
 };
