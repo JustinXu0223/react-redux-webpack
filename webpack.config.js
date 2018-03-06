@@ -7,13 +7,15 @@
 
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除dist
 
 module.exports = {
   entry: {
     app: './src/index.js'
   },
   output: {
-    filename: 'static/js/[name].js', // .[hash:7]
+    filename: 'static/js/[name].[hash:7].js', //
     path: path.resolve(__dirname, 'dist'), // 输出的文件地址
     publicPath: ''
   },
@@ -49,9 +51,20 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin({
       filename: "static/css/[name].min.css",
       allChunks: true
+    }),
+    new HtmlWebpackPlugin({
+      filename : 'index.html',//输出的html路径
+      template : './public/index.html', //html模板路径
+      chunks : ['app'],
+      minify: {
+        minifyCSS: true,
+        minifyJS: true,
+        minifyURLs: true,
+      }
     }),
   ]
 };
