@@ -13,7 +13,7 @@ module.exports = {
     app: './src/index.js'
   },
   output: {
-    filename: 'static/js/[name].js', // .[hash]
+    filename: 'static/js/[name].js', // .[hash:7]
     path: path.resolve(__dirname, 'dist'), // 输出的文件地址
     publicPath: ''
   },
@@ -33,10 +33,19 @@ module.exports = {
               fallback: 'file-loader',
               limit: 8192, // publicPath: '../../',
               outputPath: 'static/images/',
-              name: '[name]_[hash].[ext]',
+              name: '[name]_[hash:7].[ext]',
             }
           }]
       },
+      { test: /\.(woff|woff2|eot|ttf|otf)$/, use:
+          [{
+            loader: 'file-loader',
+            options: {
+              outputPath: 'static/fonts/',
+              name: '[name]_[hash:7].[ext]',
+            }
+          }]
+      }
     ]
   },
   plugins: [
