@@ -76,6 +76,7 @@ module.exports = {
 	new webpack.optimize.CommonsChunkPlugin({
 	  name: 'manifest', // 指定公共 bundle 的名称。
 	  minChunks: Infinity
-	})
+	}),
+	new webpack.NoErrorsPlugin()
   ]
 };

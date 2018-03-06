@@ -30,6 +30,8 @@ module.exports = merge(base, {
   },
   devServer: {
 	contentBase: './dist',
+	compress: true,
+	port: 9000,
 	historyApiFallback: true,//不跳转
 	inline: true//实时刷新
   },
