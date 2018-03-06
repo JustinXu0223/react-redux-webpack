@@ -8,6 +8,8 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除dist
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // copy
 
 module.exports = {
   entry: {
@@ -50,6 +52,12 @@ module.exports = {
     ]
   },
   plugins: [
+	new CleanWebpackPlugin(['dist']),
+	new CopyWebpackPlugin([{
+	  from: "./static",
+	  to: "static",
+	  force: true
+	}]),
     new ExtractTextPlugin({
       filename: "static/css/[name].min.css",
       allChunks: true
