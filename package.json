@@ -1,0 +1,8 @@
+{
+  "name": "react-redux",
+  "version": "1.0.0",
+  "description": "react+redux+antd",
+  "main": "index.js",
+  "author": "JOKER XU",
+  "license": "MIT"
+}
