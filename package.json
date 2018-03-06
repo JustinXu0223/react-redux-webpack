@@ -4,5 +4,19 @@
   "description": "react+redux+antd",
   "main": "index.js",
   "author": "JOKER XU",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack-cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/details/Reac-Redux-Antd.git"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "webpack": "^4.1.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
+  }
 }
