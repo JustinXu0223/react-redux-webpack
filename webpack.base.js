@@ -6,7 +6,6 @@
  */
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除dist
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // copy
@@ -18,19 +17,15 @@ module.exports = {
 	  'lodash'
 	]
   },
-  output: {
-	filename: 'static/js/[name].[hash:7].js', //
-	path: path.resolve(__dirname, 'dist'), // 输出的文件地址
-	publicPath: ''
-  },
   module: {
 	rules: [
 	  {
-		test: /\.less$/,
-		use: ExtractTextPlugin.extract({
-		  fallback: "style-loader",
-		  use: ["css-loader", "less-loader"]
-		})
+		test: /\.js$/,
+		loader: "babel-loader",
+		options: {
+		  presets: ['es2015']
+		},
+		include: [path.resolve(__dirname, 'dist'), path.resolve(__dirname, 'test')]
 	  },
 	  {
 		test: /\.(png|svg|jpg|gif|jpeg)$/, use:
@@ -63,10 +58,6 @@ module.exports = {
 	  to: "static",
 	  force: true
 	}]),
-	new ExtractTextPlugin({
-	  filename: "static/css/[name].min.css",
-	  allChunks: true
-	}),
 	new HtmlWebpackPlugin({
 	  filename: 'index.html',//输出的html路径
 	  template: './public/index.html', //html模板路径
@@ -79,10 +70,12 @@ module.exports = {
 	}),
 	new webpack.HashedModuleIdsPlugin(), // 修复vendor hash
 	new webpack.optimize.CommonsChunkPlugin({
-	  name: 'vendor'
+	  name: 'vendor',
+	  minChunks: Infinity
 	}),
 	new webpack.optimize.CommonsChunkPlugin({
-	  name: 'manifest' // 指定公共 bundle 的名称。
+	  name: 'manifest', // 指定公共 bundle 的名称。
+	  minChunks: Infinity
 	})
   ]
 };
