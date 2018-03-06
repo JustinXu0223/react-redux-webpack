@@ -5,12 +5,14 @@
  * @author JOKER XU
  */
 import _ from 'lodash';
+import './index.less';
 function component() {
-  var element = document.createElement('div');
+  let element = document.createElement('div');
 
   // Lodash, now imported by this script
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
+  element.classList.add('hello');
   return element;
 }
 

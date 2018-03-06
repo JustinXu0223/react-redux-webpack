@@ -6,14 +6,32 @@
  */
 
 const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
 
 module.exports = {
   entry: {
-    bundle: './src/index.js'
+    app: './src/index.js'
   },
   output: {
     filename: 'static/js/[name].js', // .[hash]
     path: path.resolve(__dirname, 'dist'), // 输出的文件地址
-    publicPath:''
-  }
+    publicPath: ''
+  },
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader", "less-loader"]
+        })
+      }
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: "static/css/[name].min.css",
+      allChunks: true
+    }),
+  ]
 };
