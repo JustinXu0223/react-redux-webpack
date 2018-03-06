@@ -14,18 +14,20 @@ const base = require('./webpack.base.js');
 module.exports = merge(base, {
   devtool: 'source-map',
   plugins: [
-    new webpack.BannerPlugin('上海市**网络科技版权所有，翻版必究'),
-    new OptimizeCssAssetsPlugin({ // 压缩css插件
-      assetNameRegExp: /\.min\.css$/g,
-      cssProcessor: require('cssnano'),
-      cssProcessorOptions: { discardComments: {removeAll: true } },
-      canPrint: true
-    }),
-    new UglifyJSPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    })
+	new webpack.BannerPlugin('上海市**网络科技版权所有，翻版必究'),
+	new OptimizeCssAssetsPlugin({ // 压缩css插件
+	  assetNameRegExp: /\.min\.css$/g,
+	  cssProcessor: require('cssnano'),
+	  cssProcessorOptions: {discardComments: {removeAll: true}},
+	  canPrint: true
+	}),
+	new UglifyJSPlugin({
+	  sourceMap: true
+	}),
+	new webpack.DefinePlugin({
+	  'process.env': {
+		'NODE_ENV': JSON.stringify('production')
+	  }
+	})
   ]
 });
