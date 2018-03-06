@@ -7,11 +7,16 @@
 import _ from 'lodash';
 import './index.less';
 import Icon from './logo.png';
+
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Looks like we are in development mode!!!!');
+}
+
 function component() {
   var element = document.createElement('div');
 
   // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello23123123', 'webpack'], ' ');
+  element.innerHTML = _.join(['Hello233', 'webpack'], ' ');
 
   element.classList.add('hello');
   // 将图像添加到我们现有的 div。

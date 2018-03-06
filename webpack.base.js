@@ -13,43 +13,48 @@ const CopyWebpackPlugin = require('copy-webpack-plugin'); // copy
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+	app: './src/index.js',
+	vendor: [
+	  'lodash'
+	]
   },
   output: {
-    filename: 'static/js/[name].[hash:7].js', //
-    path: path.resolve(__dirname, 'dist'), // 输出的文件地址
-    publicPath: ''
+	filename: 'static/js/[name].[hash:7].js', //
+	path: path.resolve(__dirname, 'dist'), // 输出的文件地址
+	publicPath: ''
   },
   module: {
-    rules: [
-      {
-        test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ["css-loader", "less-loader"]
-        })
-      },
-      { test: /\.(png|svg|jpg|gif|jpeg)$/, use:
-          [{
-            loader: 'url-loader',
-            options: {
-              fallback: 'file-loader',
-              limit: 8192, // publicPath: '../../',
-              outputPath: 'static/images/',
-              name: '[name]_[hash:7].[ext]',
-            }
-          }]
-      },
-      { test: /\.(woff|woff2|eot|ttf|otf)$/, use:
-          [{
-            loader: 'file-loader',
-            options: {
-              outputPath: 'static/fonts/',
-              name: '[name]_[hash:7].[ext]',
-            }
-          }]
-      }
-    ]
+	rules: [
+	  {
+		test: /\.less$/,
+		use: ExtractTextPlugin.extract({
+		  fallback: "style-loader",
+		  use: ["css-loader", "less-loader"]
+		})
+	  },
+	  {
+		test: /\.(png|svg|jpg|gif|jpeg)$/, use:
+		  [{
+			loader: 'url-loader',
+			options: {
+			  fallback: 'file-loader',
+			  limit: 8192, // publicPath: '../../',
+			  outputPath: 'static/images/',
+			  name: '[name]_[hash:7].[ext]',
+			}
+		  }]
+	  },
+	  {
+		test: /\.(woff|woff2|eot|ttf|otf)$/, use:
+		  [{
+			loader: 'file-loader',
+			options: {
+			  outputPath: 'static/fonts/',
+			  name: '[name]_[hash:7].[ext]',
+			}
+		  }]
+	  }
+	]
   },
   plugins: [
 	new CleanWebpackPlugin(['dist']),
@@ -58,26 +63,26 @@ module.exports = {
 	  to: "static",
 	  force: true
 	}]),
-    new ExtractTextPlugin({
-      filename: "static/css/[name].min.css",
-      allChunks: true
-    }),
-    new HtmlWebpackPlugin({
-      filename : 'index.html',//输出的html路径
-      template : './public/index.html', //html模板路径
-      chunks : ['app'],
-      minify: {
-        minifyCSS: true,
-        minifyJS: true,
-        minifyURLs: true,
-      }
-    }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    // 	name: 'common',
-    // 	minChunks (module) {
-    // 		return module.context &&
-    // 			module.context.indexOf('node_modules') >= 0;
-    // 	}
-    // }),
+	new ExtractTextPlugin({
+	  filename: "static/css/[name].min.css",
+	  allChunks: true
+	}),
+	new HtmlWebpackPlugin({
+	  filename: 'index.html',//输出的html路径
+	  template: './public/index.html', //html模板路径
+	  chunks: ['app', 'vendor', 'manifest'],
+	  minify: {
+		minifyCSS: true,
+		minifyJS: true,
+		minifyURLs: true,
+	  }
+	}),
+	new webpack.HashedModuleIdsPlugin(), // 修复vendor hash
+	new webpack.optimize.CommonsChunkPlugin({
+	  name: 'vendor'
+	}),
+	new webpack.optimize.CommonsChunkPlugin({
+	  name: 'manifest' // 指定公共 bundle 的名称。
+	})
   ]
 };
