@@ -25,7 +25,18 @@ module.exports = {
           fallback: "style-loader",
           use: ["css-loader", "less-loader"]
         })
-      }
+      },
+      { test: /\.(png|svg|jpg|gif|jpeg)$/, use:
+          [{
+            loader: 'url-loader',
+            options: {
+              fallback: 'file-loader',
+              limit: 8192, // publicPath: '../../',
+              outputPath: 'static/images/',
+              name: '[name]_[hash].[ext]',
+            }
+          }]
+      },
     ]
   },
   plugins: [

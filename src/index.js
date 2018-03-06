@@ -6,6 +6,7 @@
  */
 import _ from 'lodash';
 import './index.less';
+import Icon from './logo.png';
 function component() {
   let element = document.createElement('div');
 
@@ -13,6 +14,11 @@ function component() {
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
   element.classList.add('hello');
+  // 将图像添加到我们现有的 div。
+  let myIcon = new Image();
+  myIcon.src = Icon;
+  element.appendChild(myIcon);
+
   return element;
 }
 
