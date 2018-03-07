@@ -10,6 +10,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除dist
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // copy
 
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
   entry: {
 	app: './src/index.js',
@@ -17,15 +21,16 @@ module.exports = {
 	  'lodash'
 	]
   },
+  resolve: {
+    extensions: [' ', '.js', '.jsx']
+  },
   module: {
 	rules: [
 	  {
-		test: /\.js$/,
-		loader: "babel-loader",
-		options: {
-		  presets: ['es2015']
-		},
-		include: [path.resolve(__dirname, 'dist'), path.resolve(__dirname, 'test')]
+        test: /\.(js|jsx)?$/,
+        loaders: 'babel-loader',
+        exclude: /node_modules/,
+        include: [resolve('src'), resolve('test')]
 	  },
 	  {
 		test: /\.(png|svg|jpg|gif|jpeg)$/, use:
@@ -76,7 +81,6 @@ module.exports = {
 	new webpack.optimize.CommonsChunkPlugin({
 	  name: 'manifest', // 指定公共 bundle 的名称。
 	  minChunks: Infinity
-	}),
-	new webpack.NoErrorsPlugin()
+	})
   ]
 };

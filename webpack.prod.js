@@ -17,7 +17,7 @@ module.exports = merge(base, {
   output: {
 	filename: 'static/js/[name].[hash:7].js', //
 	path: path.resolve(__dirname, 'dist'), // 输出的文件地址
-	publicPath: ''
+	publicPath: '/'
   },
   devtool: 'source-map',
   module: {

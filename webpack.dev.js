@@ -9,11 +9,15 @@ const path = require('path');
 const merge = require('webpack-merge');
 const base = require('./webpack.base.js');
 
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = merge(base, {
   output: {
 	filename: 'static/js/[name].js', //
-	path: path.resolve(__dirname, 'dist'), // 输出的文件地址
-	publicPath: ''
+	path: resolve('dist'), // 输出的文件地址
+	publicPath: 'static'
   },
   devtool: 'inline-source-map',
   module: {
