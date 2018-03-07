@@ -26,7 +26,6 @@ module.exports = {
   },
   resolve: {
     extensions: [' ', '.js', '.json', '.jsx', '.css', '.less','.json'],
-	//查找module的话从这里开始查找;
 	modules: [resolve( "src"), "node_modules"], //绝对路径;
   },
   module: {

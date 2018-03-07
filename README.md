@@ -25,3 +25,5 @@ $ npm install babel-preset-stage-0 -D //支持ES7
 $ npm install webpack -D //模块管理和打包工具
 $ npm install webpack-dev-server -D //监听代码自动刷新
 ```
+
+https://github.com/brickyang/antd-demo/tree/master/src
