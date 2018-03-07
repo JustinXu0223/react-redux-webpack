@@ -112,7 +112,7 @@ module.exports = merge(base, {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin('上海市**网络科技版权所有，翻版必究'),
+    new webpack.BannerPlugin('上海市******版权所有，翻版必究'),
     new OptimizeCssAssetsPlugin({ // 压缩css
       assetNameRegExp: /\.min\.css$/g,
       cssProcessor: require('cssnano'),
@@ -137,7 +137,7 @@ module.exports = merge(base, {
       sourceMap: true,
     }),
     new ExtractTextPlugin({
-      filename: "static/css/[name].min.css",
+      filename: "static/css/[name].[hash:7].css",
       allChunks: true
     }),
     new webpack.DefinePlugin({
