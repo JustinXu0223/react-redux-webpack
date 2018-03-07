@@ -3,7 +3,6 @@
   src: url('./PingFangMedium.ttf') format('truetype')
 }
 
-.hello {
-    color: red;
+#root {
     transition: all .5s;
 }
