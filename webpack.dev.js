@@ -94,7 +94,7 @@ module.exports = merge(base, {
   devServer: {
 	contentBase: './dist',
 	compress: true,
-	port: 8015,
+	port: 8080,
 	historyApiFallback: true,//不跳转
 	inline: true//实时刷新
   },
