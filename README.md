@@ -8,12 +8,11 @@ npm 3.0+(v3.10.10)
 * Run 'yarn' OR 'npm install'
 
 ### 开发环境
-* Run 'yarn start' OR 'npm run start'
+* Run 'yarn dev' OR 'npm run dev'
 
 ### 部署环境
 * Run 'yarn build' OR 'npm run build'
 
-### 项目结构
 ### 项目结构
 ```html
 |--public  此文件下打包盒测试会copy
