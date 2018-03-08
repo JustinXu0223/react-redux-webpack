@@ -1,6 +1,6 @@
 /**
  * @component webpack.dev.js
- * @description 开发环境配置
+ * @description 开发环境
  * @time 2018/3/6
  * @author JOKER XU
  */

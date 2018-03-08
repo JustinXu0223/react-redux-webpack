@@ -10,7 +10,6 @@ const path = require('path');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
 const ManifestPlugin = require('webpack-manifest-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const base = require('./webpack.base.js');
 
 module.exports = merge(base, {
@@ -113,12 +112,6 @@ module.exports = merge(base, {
   },
   plugins: [
     new webpack.BannerPlugin('上海市******版权所有，翻版必究'),
-    new OptimizeCssAssetsPlugin({ // 压缩css
-      assetNameRegExp: /\.min\.css$/g,
-      cssProcessor: require('cssnano'),
-      cssProcessorOptions: {discardComments: {removeAll: true}},
-      canPrint: true
-    }),
     new ManifestPlugin({
       fileName: 'asset-manifest.json', // 生成映射
     }),
