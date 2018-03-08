@@ -6,7 +6,7 @@
   "author": "JOKER XU",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "html-webpack-plugin": "^3.0.4",
     "less": "^3.0.1",
     "less-loader": "^4.0.6",
+    "open-browser-webpack-plugin": "0.0.5",
     "postcss-loader": "^2.1.1",
     "style-loader": "^0.20.2",
     "uglifyjs-webpack-plugin": "^0.4.6",

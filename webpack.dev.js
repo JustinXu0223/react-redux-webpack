@@ -9,10 +9,13 @@ const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
 const base = require('./webpack.base.js');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
+
+const port = 8080;
 
 module.exports = merge(base, {
   output: {
@@ -94,12 +97,13 @@ module.exports = merge(base, {
   devServer: {
 	contentBase: './dist',
 	compress: true,
-	port: 8080,
+	port: port,
 	historyApiFallback: true,//不跳转
 	inline: true//实时刷新
   },
   plugins: [
 	new webpack.NamedModulesPlugin(),
-	new webpack.HotModuleReplacementPlugin()
+	new webpack.HotModuleReplacementPlugin(),
+    new OpenBrowserPlugin({ url: 'http://localhost:'+port }),
   ],
 });

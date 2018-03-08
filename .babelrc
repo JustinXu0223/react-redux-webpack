@@ -4,5 +4,9 @@
     "build": {
       "optional": ["optimisation", "minification"]
     }
-  }
+  },
+  "plugins": [
+    ["import", {"libraryName": "antd", "style": "css"}]
+  ],
+  "sourceMaps": true
 }
