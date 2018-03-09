@@ -42,6 +42,8 @@
     "babel-runtime": "^6.26.0",
     "lodash": "^4.17.5",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   }
 }
