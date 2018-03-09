@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Icon from '../logo.svg';
 import loginBg from '../login-bg.jpg';
 import { Button } from 'antd';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router';
 import './app.less';
 
 class App extends Component {
@@ -16,8 +16,8 @@ class App extends Component {
           <Button type="primary">Button</Button>
         </header>
         <ul style={{marginTop: '20px'}}>
-          <li><NavLink to="/demo-01">simpleDemo</NavLink></li>
-          <li><NavLink to="/404">Error</NavLink></li>
+          <li><Link to="/demo-01">simpleDemo</Link></li>
+          <li><Link to="/404">Error</Link></li>
         </ul>
         <section className="section-container">
           <p>内容</p>
