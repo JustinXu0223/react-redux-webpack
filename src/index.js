@@ -6,15 +6,22 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import _ from 'lodash';
 import './index.less';
 import RouterConfig from './routers';
+import {Provider} from 'react-redux';
+import store from './store';
+import {browserHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
 
 if (process.env.NODE_ENV !== 'production') {
   console.log('Looks like we are in development mode!!!!');
 }
 
+const history = syncHistoryWithStore(browserHistory, store);
+
 ReactDOM.render(
-    <RouterConfig />,
-    document.getElementById('root')
+	<Provider store={store}>
+	  <RouterConfig history={history} />
+	</Provider>,
+	document.getElementById('root')
 );

@@ -2,7 +2,7 @@
  * @component index.js
  * @description 常量文件
  * @time 2018/3/4
- * @author jokerXu
+ * @author JOKER XU
  */
 const FilterTypes = {
   ALL: '全部',

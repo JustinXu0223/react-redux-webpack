@@ -1,6 +1,13 @@
+/**
+ * @component app.jsx
+ * @description 主程序入口
+ * @time 2018/3/10
+ * @author JOKER XU
+ */
+
 import React, { Component } from 'react';
-import Icon from '../logo.svg';
-import loginBg from '../login-bg.jpg';
+import Icon from '../assets/images/logo.svg';
+import loginBg from '../assets/images/login-bg.jpg';
 import { Button } from 'antd';
 import { Link } from 'react-router';
 import './app.less';
@@ -16,16 +23,16 @@ class App extends Component {
           <Button type="primary">Button</Button>
         </header>
         <ul style={{marginTop: '20px'}}>
+          <li><Link to="/">首页</Link></li>
           <li><Link to="/demo-01">simpleDemo</Link></li>
+          <li><Link to="/demo-02">TodoDemo</Link></li>
           <li><Link to="/404">Error</Link></li>
         </ul>
         <section className="section-container">
           <p>内容</p>
           <div>{children}</div>
-        </section>
-        {/*<p className="App-intro">
           <img src={loginBg}/>
-        </p>*/}
+        </section>
       </div>
     );
   }
