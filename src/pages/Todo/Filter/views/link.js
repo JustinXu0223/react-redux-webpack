@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {setFilter} from '../actions.js';
+import { connect } from 'react-redux';
+import { setFilter } from '../actions.js';
 
-const Link = ({active, children, onClick}) => {
+const Link = ({ active, children, onClick }) => {
   if (active) {
     return <b className="filter selected">{children}</b>;
   } else {
@@ -27,7 +27,7 @@ Link.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     active: state.filter === ownProps.filter
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

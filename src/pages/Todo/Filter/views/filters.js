@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from './link.js';
-import {FilterTypes} from '../../../../constants/index'
+import { FilterTypes } from '../../../../constants/index';
 
 import './style.css';
 

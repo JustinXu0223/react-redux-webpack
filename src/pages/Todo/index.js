@@ -5,15 +5,15 @@
  * @author jokerXu
  */
 import React from 'react';
-import {view as Todos} from './TodoList';
-import {view as Filter} from './Filter';
+import { view as Todos } from './TodoList';
+import { view as Filter } from './Filter';
 
 function Todo() {
   return (
-	  <div>
-		<Todos />
-		<Filter />
-	  </div>
+    <div>
+      <Todos />
+      <Filter />
+    </div>
   );
 }
 

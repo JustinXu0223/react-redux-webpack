@@ -12,7 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成html
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 清除dist
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // copy
 
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, dir);
 }
 
@@ -23,52 +23,52 @@ module.exports = {
       'react',
       'react-dom',
       'react-router',
-	  'react-router-redux',
-	  'react-redux',
-	  'redux'
+      'react-router-redux',
+      'react-redux',
+      'redux'
     ]
   },
   resolve: {
-    extensions: [' ', '.js', '.json', '.jsx', '.css', '.less','.json'],
-	modules: [resolve( "src"), "node_modules"], //绝对路径;
+    extensions: [' ', '.js', '.json', '.jsx', '.css', '.less', '.json'],
+    modules: [resolve('src'), 'node_modules'], //绝对路径;
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)?$/,
         loader: 'babel-loader',
-		exclude: /node_modules/,
+        exclude: /node_modules/,
         include: [resolve('src'), resolve('test')]
       },
       {
         test: /\.(png|svg|jpg|gif|jpeg)$/, use:
-          [{
-            loader: 'url-loader',
-            options: {
-              fallback: 'file-loader',
-              limit: 8192,
-              outputPath: 'static/images/',
-              name: '[name]_[hash:7].[ext]',
-            }
-          }]
+        [{
+          loader: 'url-loader',
+          options: {
+            fallback: 'file-loader',
+            limit: 8192,
+            outputPath: 'static/images/',
+            name: '[name]_[hash:7].[ext]',
+          }
+        }]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/, use:
-          [{
-            loader: 'file-loader',
-            options: {
-              outputPath: 'static/fonts/',
-              name: '[name]_[hash:7].[ext]',
-            }
-          }]
+        [{
+          loader: 'file-loader',
+          options: {
+            outputPath: 'static/fonts/',
+            name: '[name]_[hash:7].[ext]',
+          }
+        }]
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new CopyWebpackPlugin([{
-      from: "./public",
-      to: "",
+      from: './public',
+      to: '',
       force: true
     }]),
     new HtmlWebpackPlugin({

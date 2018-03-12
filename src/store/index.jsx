@@ -5,11 +5,11 @@
  * @author JOKER XU
  */
 
-import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import {reducer as todoReducer} from '../pages/Todo/TodoList';
-import {reducer as filterReducer} from '../pages/Todo/Filter';
+import { reducer as todoReducer } from '../pages/Todo/TodoList';
+import { reducer as filterReducer } from '../pages/Todo/Filter';
 
 const win = window;
 
@@ -26,8 +26,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const storeEnhancers = compose(
-	applyMiddleware(...middlewares),
-	(win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f,
+  applyMiddleware(...middlewares),
+  (win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f,
 );
 
 export default createStore(reducer, {}, storeEnhancers);

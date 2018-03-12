@@ -4,17 +4,16 @@
  * @time 2018/3/10
  * @author JOKER XU
  */
-
+import { Button } from 'antd';
+import { Link } from 'react-router';
 import React, { Component } from 'react';
 import Icon from '../assets/images/logo.svg';
 import loginBg from '../assets/images/login-bg.jpg';
-import { Button } from 'antd';
-import { Link } from 'react-router';
 import './app.less';
 
 class App extends Component {
   render() {
-    const { children }= this.props;
+    const { children } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -22,7 +21,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
           <Button type="primary">Button</Button>
         </header>
-        <ul style={{marginTop: '20px'}}>
+        <ul style={{ marginTop: '20px' }}>
           <li><Link to="/">首页</Link></li>
           <li><Link to="/demo-01">simpleDemo</Link></li>
           <li><Link to="/demo-02">TodoDemo</Link></li>
@@ -31,7 +30,7 @@ class App extends Component {
         <section className="section-container">
           <p>内容</p>
           <div>{children}</div>
-          <img src={loginBg}/>
+          <img src={loginBg} />
         </section>
       </div>
     );
