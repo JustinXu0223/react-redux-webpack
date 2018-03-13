@@ -18,16 +18,27 @@ function resolve (dir) {
 const port = 8080;
 
 module.exports = merge(base, {
+  entry: {
+    app: ['react-hot-loader/patch', resolve('src/index.js')],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router',
+      'react-router-redux',
+      'react-redux',
+      'redux'
+    ]
+  },
   output: {
-	filename: 'static/js/[name].js', //
-	path: resolve('dist'), // 输出的文件地址
-	publicPath: ''
+    filename: 'static/js/[name].js', //
+    path: resolve('dist'), // 输出的文件地址
+    publicPath: ''
   },
   devtool: 'inline-source-map',
   module: {
-	rules: [
-	  {
-		test: /\.css$/,
+    rules: [
+      {
+        test: /\.css$/,
         use: [
           require.resolve('style-loader'),
           {
@@ -55,9 +66,9 @@ module.exports = merge(base, {
             },
           },
         ],
-	  },
-	  {
-		test: /\.less$/,
+      },
+      {
+        test: /\.less$/,
         use: [
           require.resolve('style-loader'),
           {
@@ -91,19 +102,20 @@ module.exports = merge(base, {
             },
           },
         ],
-	  },
-	]
+      },
+    ]
   },
   devServer: {
-	contentBase: './dist',
-	compress: true,
-	port: port,
-	historyApiFallback: true,//不跳转
-	inline: true//实时刷新
+    contentBase: './dist',
+    compress: true,
+    port: port,
+    hot: true,
+    historyApiFallback: true,//不跳转
+    inline: true//实时刷新
   },
   plugins: [
-	new webpack.NamedModulesPlugin(),
-	new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:'+port }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new OpenBrowserPlugin({url: 'http://localhost:' + port}),
   ],
 });

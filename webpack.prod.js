@@ -12,10 +12,25 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
 const ManifestPlugin = require('webpack-manifest-plugin');
 const base = require('./webpack.base.js');
 
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = merge(base, {
+  entry: {
+    app: [resolve('src/index.js')],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router',
+      'react-router-redux',
+      'react-redux',
+      'redux'
+    ]
+  },
   output: {
     filename: 'static/js/[name].[hash:7].js', //
-    path: path.resolve(__dirname, 'dist'), // 输出的文件地址
+    path: resolve('dist'), // 输出的文件地址
     publicPath: './'
   },
   devtool: 'source-map',

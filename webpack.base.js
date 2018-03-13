@@ -17,17 +17,6 @@ function resolve (dir) {
 }
 
 module.exports = {
-  entry: {
-    app: './src/index.js',
-    vendor: [
-      'react',
-      'react-dom',
-      'react-router',
-      'react-router-redux',
-      'react-redux',
-      'redux'
-    ]
-  },
   resolve: {
     extensions: [' ', '.js', '.json', '.jsx', '.css', '.less', '.json'],
     modules: [resolve('src'), 'node_modules'], //绝对路径;
