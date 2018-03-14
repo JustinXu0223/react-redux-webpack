@@ -25,7 +25,8 @@ module.exports = {
       'react-router',
       'react-router-redux',
       'react-redux',
-      'redux'
+      'redux',
+      'redux-saga'
     ]
   },
   resolve: {

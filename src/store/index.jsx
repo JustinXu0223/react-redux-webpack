@@ -10,12 +10,14 @@ import { routerReducer } from 'react-router-redux';
 
 import { reducer as todoReducer } from '../pages/Todo/TodoList';
 import { reducer as filterReducer } from '../pages/Todo/Filter';
+import { reducer as HelloReducer } from '../pages/Hello';
 
 const win = window;
 
 const reducer = combineReducers({
   todos: todoReducer,
   filter: filterReducer,
+  hello: HelloReducer,
   routing: routerReducer,
 });
 

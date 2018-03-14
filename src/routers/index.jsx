@@ -9,6 +9,13 @@ import { Router, Route, IndexRoute, Redirect } from 'react-router';
 
 import App from '../pages/app';
 
+// HelloPage
+const getHelloPage = (location, callback) => {
+  require.ensure([], function (require) {
+    callback(null, require('../pages/Hello/views').default);
+  }, 'controlPanel');
+};
+
 // ControlPanel
 const getControlPanelPage = (location, callback) => {
   require.ensure([], function (require) {
@@ -34,7 +41,7 @@ const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute />
+        <IndexRoute getComponent={getHelloPage} />
         <Route path="/demo-01" getComponent={getControlPanelPage} />
         <Route path="/demo-02" getComponent={getTodoPage} />
       </Route>
