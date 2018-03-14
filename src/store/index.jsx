@@ -7,6 +7,7 @@
 
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import thunkMiddleware from 'redux-thunk';
 
 import { reducer as todoReducer } from '../pages/Todo/TodoList';
 import { reducer as filterReducer } from '../pages/Todo/Filter';
@@ -21,7 +22,7 @@ const reducer = combineReducers({
   routing: routerReducer,
 });
 
-const middlewares = [];
+const middlewares = [thunkMiddleware];
 if (process.env.NODE_ENV !== 'production') {
   //  检查reducer 是否违反了作为一个纯函数的规定擅自修改了参数 state
   // middlewares.push(require('redux-immutable-state-invariant')());

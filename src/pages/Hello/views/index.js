@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HelloItem from './helloItem';
 import Counter from './counter';
-import { incrementAction, decreaseAction } from '../actions';
+import { incrementAsync, decreaseAsync } from '../actions';
 import './index.less';
 
 class Hello extends Component {
@@ -41,8 +41,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = ({
-  incrementAction: incrementAction,
-  decreaseAction: decreaseAction
+  incrementAction: incrementAsync,
+  decreaseAction: decreaseAsync
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hello);
