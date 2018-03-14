@@ -30,7 +30,7 @@ class App extends Component {
         <section className="section-container">
           <p>内容</p>
           <div>{children}</div>
-          <img src={loginBg} />
+          {/*<img src={loginBg} />*/}
         </section>
       </div>
     );

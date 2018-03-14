@@ -1,3 +1,5 @@
+// css 动画库
+import TransitionGroup from 'react-addons-css-transition-group';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -7,19 +9,23 @@ import { toggleTodo, removeTodo } from '../actions.js';
 import { FilterTypes } from '../../../../constants/index';
 
 const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
+  function mapList() {
+    if (!todos || todos.length === 0) return null;
+    return todos.map((item) => (
+      <TodoItem
+        key={item.id}
+        text={item.text}
+        completed={item.completed}
+        onToggle={() => onToggleTodo(item.id)}
+        onRemove={() => onRemoveTodo(item.id)}
+      />
+    ));
+  }
   return (
     <ul className="todo-list">
-      {
-        todos.map((item) => (
-          <TodoItem
-            key={item.id}
-            text={item.text}
-            completed={item.completed}
-            onToggle={() => onToggleTodo(item.id)}
-            onRemove={() => onRemoveTodo(item.id)}
-          />
-        ))
-      }
+      <TransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={200}>
+        {mapList()}
+      </TransitionGroup>
     </ul>
   );
 };
