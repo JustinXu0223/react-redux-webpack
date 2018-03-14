@@ -3,11 +3,19 @@
   "env": {
     "build": {
       "optional": ["optimisation", "minification"]
+    },
+    "development": {
+      "plugins": [["react-transform", {
+        "transforms": [{
+          "transform": "react-transform-hmr",
+          "imports": ["react"],
+          "locals": ["module"]
+        }]
+      }]]
     }
   },
   "plugins": [
     ["transform-runtime"],
-    ["react-hot-loader/babel"],
     ["import", {"libraryName": "antd", "style": "css"}]
   ],
   "sourceMaps": true

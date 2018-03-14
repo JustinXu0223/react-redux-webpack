@@ -17,17 +17,6 @@ function resolve (dir) {
 }
 
 module.exports = merge(base, {
-  entry: {
-    app: [resolve('src/index.js')],
-    vendor: [
-      'react',
-      'react-dom',
-      'react-router',
-      'react-router-redux',
-      'react-redux',
-      'redux'
-    ]
-  },
   output: {
     filename: 'static/js/[name].[hash:7].js', //
     path: resolve('dist'), // 输出的文件地址

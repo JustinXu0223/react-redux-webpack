@@ -18,17 +18,6 @@ function resolve (dir) {
 const port = 8080;
 
 module.exports = merge(base, {
-  entry: {
-    app: ['react-hot-loader/patch', resolve('src/index.js')],
-    vendor: [
-      'react',
-      'react-dom',
-      'react-router',
-      'react-router-redux',
-      'react-redux',
-      'redux'
-    ]
-  },
   output: {
     filename: 'static/js/[name].js', //
     path: resolve('dist'), // 输出的文件地址
