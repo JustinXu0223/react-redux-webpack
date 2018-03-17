@@ -47,6 +47,7 @@ module.exports = merge(base, {
               loader: require.resolve('postcss-loader'),
               options: {
                 ident: 'postcss',
+                sourceMap: true,
                 plugins: () => [
                   require('postcss-flexbugs-fixes'),
                   autoprefixer({
@@ -83,17 +84,10 @@ module.exports = merge(base, {
               },
             },
             {
-              loader: require.resolve('less-loader'),
-              options: {
-                importLoaders: 1,
-                minimize: true,
-                sourceMap: true,
-              },
-            },
-            {
               loader: require.resolve('postcss-loader'),
               options: {
                 ident: 'postcss',
+                sourceMap: true,
                 plugins: () => [
                   require('postcss-flexbugs-fixes'),
                   autoprefixer({
@@ -106,6 +100,14 @@ module.exports = merge(base, {
                     flexbox: 'no-2009',
                   }),
                 ],
+              },
+            },
+            {
+              loader: require.resolve('less-loader'),
+              options: {
+                importLoaders: 2,
+                minimize: true,
+                sourceMap: true,
               },
             },
           ],

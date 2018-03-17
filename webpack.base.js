@@ -72,6 +72,7 @@ module.exports = {
       to: '',
       force: true
     }]),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'BABEL_ENV']),
     new HtmlWebpackPlugin({
       filename: 'index.html',//输出的html路径
       template: './public/index.html', //html模板路径

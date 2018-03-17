@@ -6,8 +6,10 @@
   "author": "JOKER XU",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "dev": "cross-env NODE_ENV=development BABEL_ENV=development webpack-dev-server --progress --colors --config webpack.dev.js",
+    "start": "npm run dev",
+    "release": "cross-env NODE_ENV=production BABEL_ENV=production webpack -p --progress --colors --config webpack.prod.js",
+    "build": "npm run release"
   },
   "keywords": [],
   "devDependencies": {
@@ -23,6 +25,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.0",
+    "cross-env": "^5.1.4",
     "css-loader": "^0.28.10",
     "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",

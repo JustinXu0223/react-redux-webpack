@@ -67,12 +67,6 @@ module.exports = merge(base, {
             },
           },
           {
-            loader: require.resolve('less-loader'),
-            options: {
-              importLoaders: 1,
-            },
-          },
-          {
             loader: require.resolve('postcss-loader'),
             options: {
               ident: 'postcss',
@@ -88,6 +82,12 @@ module.exports = merge(base, {
                   flexbox: 'no-2009',
                 }),
               ],
+            },
+          },
+          {
+            loader: require.resolve('less-loader'),
+            options: {
+              importLoaders: 2,
             },
           },
         ],
