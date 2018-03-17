@@ -105,6 +105,7 @@ module.exports = merge(base, {
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new OpenBrowserPlugin({url: 'http://localhost:' + port}),
   ],
 });
