@@ -99,6 +99,7 @@ module.exports = merge(base, {
     compress: true,
     port: port,
     hot: true,
+    clientLogLevel: "error",
     historyApiFallback: true,//不跳转
     inline: true//实时刷新
   },
