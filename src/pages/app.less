@@ -1,53 +1,59 @@
-.app-container {
-  .header {
-    height: 150px;
-    padding: 20px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    background: url("../assets/images/login-bg.jpg") no-repeat center;
-    background-size: cover;
-    border-bottom: 1px solid aqua;
+@import "../styles/index.less";
 
-    .logo {
-      animation: app-logo-spin infinite 20s linear;
-      height: 80px;
-    }
+.app .header{
+  .test(@office-default);
+}
+.test .header{
+  .test();
+}
 
-
-    @keyframes app-logo-spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+.header {
+  transition: all .5s;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  background: url("../assets/images/login-bg.jpg") no-repeat center;
+  background-size: cover;
+  border-bottom: 1px solid aqua;
+  
+  .logo {
+    animation: app-logo-spin infinite 20s linear;
+    height: 80px;
   }
+  
+  @keyframes app-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
 
-  .nav {
-    height: 40px;
+.nav {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  li {
+    padding: 0 10px;
+    margin-right: 10px;
+  }
+}
+
+.section {
+  border-top: 1px solid aqua;
+  > p {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    li {
-      padding: 0 10px;
-      margin-right: 10px;
+    
+    button {
+      margin-left: 10px;
     }
+    
   }
-
-  .section-container {
-    border-top: 1px solid aqua;
-    >p {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      button {
-        margin-left: 10px;
-      }
-
-    }
-    img {
-      width: 100%;
-    }
+  img {
+    width: 100%;
   }
-
 }

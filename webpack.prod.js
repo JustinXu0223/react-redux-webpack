@@ -27,6 +27,103 @@ module.exports = merge(base, {
     rules: [
       {
         test: /\.css$/,
+        exclude: [/node_modules/, resolve('src/styles')],
+        loader: ExtractTextPlugin.extract({
+          fallback: {
+            loader: require.resolve('style-loader'),
+            options: {
+              hmr: false,
+            },
+          },
+          use: [
+            {
+              loader: require.resolve('css-loader'),
+              options: {
+                importLoaders: 1,
+                minimize: true,
+                sourceMap: true,
+                modules: true,
+                localIdentName: "[local]_[hash:base64:8]"
+              },
+            },
+            {
+              loader: require.resolve('postcss-loader'),
+              options: {
+                ident: 'postcss',
+                sourceMap: true,
+                plugins: () => [
+                  require('postcss-flexbugs-fixes'),
+                  autoprefixer({
+                    browsers: [
+                      '>1%',
+                      'last 4 versions',
+                      'Firefox ESR',
+                      'not ie < 9', // React doesn't support IE8 anyway
+                    ],
+                    flexbox: 'no-2009',
+                  }),
+                ],
+              },
+            },
+          ],
+        }),
+      },
+      {
+        test: /\.less$/,
+        exclude: [/node_modules/, resolve('src/styles')],
+        loader: ExtractTextPlugin.extract({
+          fallback: {
+            loader: require.resolve('style-loader'),
+            options: {
+              hmr: false,
+            },
+          },
+          use: [
+            {
+              loader: require.resolve('css-loader'),
+              options: {
+                importLoaders: 1,
+                minimize: true,
+                sourceMap: true,
+                modules: true,
+                localIdentName: "[local]_[hash:base64:8]"
+              },
+            },
+            {
+              loader: require.resolve('postcss-loader'),
+              options: {
+                ident: 'postcss',
+                sourceMap: true,
+                plugins: () => [
+                  require('postcss-flexbugs-fixes'),
+                  autoprefixer({
+                    browsers: [
+                      '>1%',
+                      'last 4 versions',
+                      'Firefox ESR',
+                      'not ie < 9', // React doesn't support IE8 anyway
+                    ],
+                    flexbox: 'no-2009',
+                  }),
+                ],
+              },
+            },
+            {
+              loader: require.resolve('less-loader'),
+              options: {
+                importLoaders: 2,
+                minimize: true,
+                sourceMap: true,
+              },
+            },
+          ],
+        }),
+        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      },
+      // 对antd-design 和src/styles全局样式配置
+      {
+        test: /\.css$/,
+        include: [/node_modules/, resolve('src/styles')],
         loader: ExtractTextPlugin.extract({
           fallback: {
             loader: require.resolve('style-loader'),
@@ -67,6 +164,7 @@ module.exports = merge(base, {
       },
       {
         test: /\.less$/,
+        include: [/node_modules/, resolve('src/styles')],
         loader: ExtractTextPlugin.extract({
           fallback: {
             loader: require.resolve('style-loader'),
