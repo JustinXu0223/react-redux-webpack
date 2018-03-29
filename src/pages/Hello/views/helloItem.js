@@ -6,6 +6,7 @@
  */
 import React from 'react';
 import { Button } from 'antd';
+import styles from './helloItem.less';
 
 const HelloItem = ({ list = [], incrementAction, decreaseAction }) => {
   const mapList = () => {
@@ -14,8 +15,8 @@ const HelloItem = ({ list = [], incrementAction, decreaseAction }) => {
     }
     return list.map(value => (
       <div key={value.id}>
-        <div className="title">{value.title}:</div>
-        <div className="list-item">
+        <div className={styles.title}>{value.title}:</div>
+        <div className={styles.item}>
           <Button type="primary" onClick={() => decreaseAction(value.id)}>-</Button>
           {value.number}
           <Button type="primary" onClick={() => incrementAction(value.id)}>+</Button>

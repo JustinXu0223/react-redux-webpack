@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import HelloItem from './helloItem';
 import Counter from './counter';
 import { incrementAsync, decreaseAsync } from '../actions';
-import './index.less';
+import styles from './index.less';
 
 class Hello extends Component {
   constructor (props) {
@@ -20,7 +20,7 @@ class Hello extends Component {
     const { list, counter, incrementAction, decreaseAction } = this.props;
     const listProps = { list, incrementAction, decreaseAction };
     return (
-      <div className="hello-container">
+      <div className={styles.hello}>
         <HelloItem {...listProps} />
         <Counter counter={counter} />
       </div>
