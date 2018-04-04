@@ -5,12 +5,11 @@
  * @author JOKER XU
  */
 import { Provider } from 'react-redux';
-import { browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouterConfig from './routers';
+import RouterConfig from './routers/index';
 import store from './store';
+import { history } from './utils/History';
 
 import './index.less';
 
@@ -18,7 +17,6 @@ if (process.env.NODE_ENV !== 'production') {
   console.log('Looks like we are in development mode!!!!');
 }
 
-const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>

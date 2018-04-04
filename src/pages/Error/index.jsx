@@ -6,7 +6,7 @@
  **/
 import React from 'react';
 import { Button } from 'antd';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import styles from './index.less';
 import Img from '../../assets/images/404.svg';
 

@@ -1,54 +1,24 @@
 /**
  * @component routers
  * @description 路由配置
- * @time 2018/3/9
+ * @time 2018/4/4
  * @author JOKER XU
  **/
-import * as React from 'react';
-import { Router, Route, IndexRoute, Redirect } from 'react-router';
+import React from 'react';
+import {ConnectedRouter} from 'react-router-redux';
+import { Route, Switch} from 'react-router-dom';
 
-import App from '../pages/app';
-
-// HelloPage
-const getHelloPage = (location, callback) => {
-  require.ensure([], function (require) {
-    callback(null, require('../pages/Hello/views').default);
-  }, 'controlPanel');
-};
-
-// ControlPanel
-const getControlPanelPage = (location, callback) => {
-  require.ensure([], function (require) {
-    callback(null, require('../pages/ControlPanel').default);
-  }, 'controlPanel');
-};
-
-// TodoPage
-const getTodoPage = (location, callback) => {
-  require.ensure([], function (require) {
-    callback(null, require('../pages/Todo').default);
-  }, 'todo');
-};
-
-// Error
-const getErrorPage = (location, callback) => {
-  require.ensure([], function (require) {
-    callback(null, require('../pages/Error').default);
-  }, 'error');
-};
+import { view as App } from '../pages/App';
+import Error from '../pages/Error';
 
 const RouterConfig = ({ history }) => {
   return (
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute getComponent={getHelloPage} />
-        <Route path="/demo-01" getComponent={getControlPanelPage} />
-        <Route path="/demo-02" getComponent={getTodoPage} />
-      </Route>
-
-      <Route path="/404" getComponent={getErrorPage} />
-      <Redirect from="*" to="/404" />
-    </Router>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route exact path="/404" component={Error} />
+        <Route path="/" component={App} />
+      </Switch>
+    </ConnectedRouter>
   );
 };
 

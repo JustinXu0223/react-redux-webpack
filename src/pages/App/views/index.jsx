@@ -5,12 +5,15 @@
  * @author JOKER XU
  */
 import { Button } from 'antd';
-import { Link } from 'react-router';
+import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import Icon from '../assets/images/logo.svg';
-// import loginBg from '../assets/images/login-bg.jpg';
-import styles from './app.less';
+import Icon from '../../../assets/images/logo.svg';
+import styles from './index.less';
+
+import { view as Hello } from '../../Hello';
+import Todo from '../../Todo';
+import ControlPanel from '../../ControlPanel';
 
 class App extends Component {
   constructor (props) {
@@ -20,7 +23,6 @@ class App extends Component {
     };
   }
   render() {
-    const { children } = this.props;
     const { test } = this.state;
     const cx = classNames({
       app: test,
@@ -41,8 +43,12 @@ class App extends Component {
           <p>内容
             <Button type="primary" onClick={() => this.setState({test: !test})}>Button</Button>
           </p>
-          <div>{children}</div>
-          {/*<img src={loginBg} />*/}
+          <Switch>
+            <Route exact path="/" component={Hello} />
+            <Route exact path="/demo-01" component={ControlPanel} />
+            <Route exact path="/demo-02" component={Todo} />
+            <Redirect form="*" to="/404"/>
+          </Switch>
         </section>
       </div>
     );
