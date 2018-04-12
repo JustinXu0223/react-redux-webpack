@@ -22,57 +22,5 @@ axios.interceptors.response.use(function (response) {
   return response;
 });
 
-// common check
-const checkStatus = response => {
-  if (Object.is(200, response.status)) return response.data
-  throw new Error(response.status);
-};
-
-// common error
-const handleError = promise => {
-  return promise
-    .then(response => checkStatus(response))
-    .catch(code => {
-      // Toast.fail('服务器发生未知错误', 1)
-      // TODO you can handle the common error here
-      throw new Error('服务器发生未知错误');
-    });
-};
-
-export default {
-  /** Get Request
-   * @param url: string
-   * @param params example {key: value}
-   * @returns Promise<any>
-   */
-  get: function (url, params) {
-    const promise = axios.get(url, {
-      params: params
-    });
-    return handleError(promise);
-  },
-  /*** Post Request
-   * @param url
-   * @param params example {key: value}
-   * @returns Promise<any>
-   * */
-  postJSON: function (url, params) {
-    const promise = axios.post(url, {
-      params: JSON.stringify(params)
-    });
-    return handleError(promise);
-  },
-  /*** Post Request
-   * @param url
-   * @param params example {key: value}
-   * @returns Promise<any>
-   * */
-  patchJSON: function (url, params) {
-    const promise = axios.patch(url, {
-      params: JSON.stringify(params)
-    });
-    return handleError(promise);
-  },
-};
 
 export { axios };
