@@ -14,17 +14,45 @@
   white-space: nowrap;
 }
 
-.office-shadow {
+// more ellipsis
+.office-more-ellipsis(@line: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical; // 参考 https://github.com/postcss/autoprefixer/issues/776
+  -webkit-line-clamp: @line;  //这里是在第三行有省略号
+  overflow: hidden;
 }
 
 // 混合img样式
-.office-img-style(@color: @office-gray) {
-  -o-object-fit: cover;
-  cursor: pointer;
+.office-img-style(@width: 44px, @height: 44px,@color: @office-gray) {
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: @width;
+  height: @height;
   background-color: @color;
+}
+
+// placeholder color
+.office-placeholder-color(@color: #999) {
+  /* WebKit browsers */
+  &::-webkit-input-placeholder{
+    color: @color;
+  }
+  /* Mozilla Firefox 4 to 18 */
+  &:-moz-placeholder {
+    color: @color;
+  }
+  /* Mozilla Firefox 19+ */
+  &::-moz-placeholder {
+    color: @color;
+  }
+  /* Internet Explorer 10+ */
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+}
+
+// 阴影
+.office-header-shadow() {
+  box-shadow:0 1px 4px 0 rgba(0,0,0,.1);
 }
 
 // 清除浮动影响
