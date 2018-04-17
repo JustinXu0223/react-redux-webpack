@@ -34,6 +34,8 @@
     "no-bitwise": [0],
     "no-cond-assign": [0],
     "no-debugger": [0],
+    "no-continue": [0],
+    "max-len": [0],
     "no-else-return": [0],
     "no-nested-ternary": [0],
     "no-restricted-syntax": [0],
@@ -42,7 +44,8 @@
     "react/jsx-first-prop-new-line": [0],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-no-bind": [0],
-    "react/jsx-closing-bracket-location": [0],
+    "react/no-string-refs": [0],
+    "react/no-find-dom-node": [0],
     "react/prefer-stateless-function": [0],
     "react/jsx-max-props-per-line": [0],
     "react/prop-types": [0],
@@ -68,7 +71,6 @@
     "no-trailing-spaces": [0],
     "no-useless-constructor": [0],
     "no-shadow": [0],
-    "quote-props": [0],
-    "semi": [0]
+    "quote-props": [0]
   }
 }

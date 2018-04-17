@@ -5,8 +5,8 @@
  * @author JOKER XU
  **/
 import React from 'react';
-import {ConnectedRouter} from 'react-router-redux';
-import { Route, Switch} from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import { Route, Switch } from 'react-router-dom';
 
 import { view as App } from '../pages/App';
 import Error from '../pages/Error';
