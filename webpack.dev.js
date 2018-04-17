@@ -183,5 +183,11 @@ module.exports = merge(base, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new OpenBrowserPlugin({url: 'http://localhost:' + port}),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development'),
+        'BASE_API_ENDPOINT' : JSON.stringify('http://192.168.1.29:8849')
+      },
+    }),
   ],
 });

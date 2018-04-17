@@ -6,7 +6,7 @@
  */
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API_ENDPOINT
+const BASE_URL = process.env.BASE_API_ENDPOINT
 
 axios.defaults.baseURL = BASE_URL
 // Add a request interceptor
