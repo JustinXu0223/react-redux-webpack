@@ -1,14 +1,14 @@
-import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch'
 
 let BASE_URL = ''
 // development api
 if (process.env.NODE_ENV !== 'production') {
-  BASE_URL = 'http://192.168.1.29:8849';
+  BASE_URL = 'http://192.168.1.29:8849'
 }
 // content-type
 const ContentType = {
-  JSON: 'application/json; charset=UTF-8',
-  FORM: 'application/x-www-form-urlencoded; charset=UTF-8'
+  JSON: 'application/json charset=UTF-8',
+  FORM: 'application/x-www-form-urlencoded charset=UTF-8'
 }
 
 // Http method
@@ -23,7 +23,7 @@ const HttpMethod = {
 // common check
 const checkStatus = response => {
   if (Object.is(200, response.status)) return response.json()
-  throw new Error(response.status);
+  throw new Error(response.status)
 }
 
 // common error
@@ -33,14 +33,14 @@ const handleError = promise => {
     .catch((error) => {
       // const { message: status } = error
       // TODO you can handle the common error here
-      throw new Error('服务器发生未知错误');
-    });
+      throw new Error('服务器发生未知错误')
+    })
 }
 
 // handle url
 const getUrl = (url) => {
   if (url.startsWith('http://') || url.startsWith('https://')) return url
-  return `${BASE_URL}${url}`;
+  return `${BASE_URL}${url}`
 }
 
 // token header
@@ -52,7 +52,7 @@ export const getTokenHeaders = () => {
     'Accept': ContentType.JSON,
     'Content-Type': ContentType.JSON,
     'Token': token
-  };
+  }
 }
 
 // common header
@@ -60,7 +60,7 @@ const getHeaders = () => {
   return {
     'Accept': ContentType.JSON,
     'Content-Type': ContentType.JSON
-  };
+  }
 }
 
 export default {
@@ -76,16 +76,16 @@ export default {
       // encodeURIComponent
       Object.keys(params).forEach(key => paramsArray.push(`${key}=${params[key]}`))
       if (url.search(/\?/) === -1) {
-        url = `${url}?${paramsArray.join('&')}`;
+        url = `${url}?${paramsArray.join('&')}`
       } else {
-        url = `${url}&${paramsArray.join('&')}`;
+        url = `${url}&${paramsArray.join('&')}`
       }
     }
     const promise = fetch(getUrl(url), {
       method: HttpMethod.GET,
       headers: headers
     })
-    return handleError(promise);
+    return handleError(promise)
   },
   /** POST请求  FormData 表单数据
    * @param url
@@ -99,7 +99,7 @@ export default {
       headers: headers,
       body: formData
     })
-    return handleError(promise);
+    return handleError(promise)
   },
   /*** POST 请求
    * @param url
@@ -113,7 +113,7 @@ export default {
       headers: headers,
       body: JSON.stringify(params)
     })
-    return handleError(promise);
+    return handleError(promise)
   },
   /*** PATCH 请求
    * @param url
@@ -127,7 +127,7 @@ export default {
       headers: headers,
       body: JSON.stringify(params)
     })
-    return handleError(promise);
+    return handleError(promise)
   },
-};
+}
 

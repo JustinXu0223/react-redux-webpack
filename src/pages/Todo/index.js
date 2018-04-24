@@ -1,12 +1,12 @@
 /**
- * @component index
- * @description
+ * @component index.js
+ * @description TODO组件
  * @time 2018/3/4
- * @author jokerXu
+ * @author JOKER XU
  */
 import React from 'react'
-import { view as Todos } from './TodoList'
-import { view as Filter } from './Filter'
+import Todos from './TodoList'
+import Filter from './Filter'
 
 function Todo() {
   return (

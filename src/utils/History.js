@@ -4,10 +4,10 @@
  * @time 2018/4/4
  * @author JOKER XU
  */
-import {createBrowserHistory} from 'history';
+import { createBrowserHistory } from 'history'
 
-const history = createBrowserHistory();
+const history = createBrowserHistory()
 
 export {
   history
-};
+}

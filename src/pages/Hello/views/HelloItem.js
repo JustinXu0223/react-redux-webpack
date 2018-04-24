@@ -4,14 +4,14 @@
  * @time 2018/3/14
  * @author JOKER XU
  */
-import React from 'react';
-import { Button } from 'antd';
-import styles from './helloItem.less';
+import React from 'react'
+import { Button } from 'antd'
+import styles from './helloItem.less'
 
 const HelloItem = ({ list = [], incrementAction, decreaseAction }) => {
   const mapList = () => {
     if (list.length === 0) {
-      return null;
+      return null
     }
     return list.map(value => (
       <div key={value.id}>
@@ -22,10 +22,10 @@ const HelloItem = ({ list = [], incrementAction, decreaseAction }) => {
           <Button type="primary" onClick={() => incrementAction(value.id)}>+</Button>
         </div>
       </div>
-    ));
-  };
+    ))
+  }
 
-  return (<div>{mapList()}</div>);
-};
+  return (<div>{mapList()}</div>)
+}
 
-export default HelloItem;
+export default HelloItem

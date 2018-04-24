@@ -4,34 +4,54 @@
  * @time 2018/3/14
  * @author JOKER XU
  */
-import { INCREMENT, DECREASE } from './actionTypes'
-
+import { message } from 'antd'
+import { put, call, take, select } from 'redux-saga/effects'
+import * as Types from './actionTypes'
 import DemoService from '../../services/Demo'
 
 export const incrementAction = (id) => ({
-  type: INCREMENT,
+  type: Types.INCREMENT_REQUEST,
   id: id
 })
 
 export const decreaseAction = (id) => ({
-  type: DECREASE,
+  type: Types.DECREASE_REQUEST,
   id: id
 })
 
 // callback
-export const incrementAsync = (id) => {
-  return (dispatch) => {
-    DemoService.delay(1000).then(data => {
-      dispatch(incrementAction(id))
-    })
+export function* incrementAsync() {
+  while (true) {
+    const { id } = yield take(Types.INCREMENT_REQUEST)
+    const hide = message.loading('loading', 0)
+    try {
+      yield call(DemoService.delay, 2000)
+      yield put({
+        type: Types.INCREMENT,
+        id: id
+      })
+    } catch (err) {
+      // yield put({type: actionTypes.ERROR})
+    } finally {
+      hide()
+    }
   }
 }
 
-// callback
-export const decreaseAsync = (id) => {
-  return (dispatch) => {
-    DemoService.delay(1000).then(data => {
-      dispatch(decreaseAction(id))
-    })
+export function* decreaseAsync() {
+  while (true) {
+    const { id } = yield take(Types.DECREASE_REQUEST)
+    const hide = message.loading('loading', 0)
+    try {
+      yield call(DemoService.delay, 2000)
+      yield put({
+        type: Types.DECREASE,
+        id: id
+      })
+    } catch (err) {
+      // yield put({type: actionTypes.ERROR})
+    } finally {
+      hide()
+    }
   }
 }

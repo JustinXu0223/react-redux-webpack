@@ -8,6 +8,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
+import rootSaga from '../sages'
 
 import { reducer as todoReducer } from '../pages/Todo/TodoList'
 import { reducer as filterReducer } from '../pages/Todo/Filter'
@@ -15,6 +16,7 @@ import { reducer as HelloReducer } from '../pages/Hello'
 
 const win = window
 
+// root reducer
 const reducer = combineReducers({
   todos: todoReducer,
   filter: filterReducer,
@@ -34,4 +36,8 @@ const storeEnhancers = compose(
   (win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f,
 )
 
-export default createStore(reducer, {}, storeEnhancers)
+const store = createStore(reducer, {}, storeEnhancers)
+
+sagaMiddleware.run(rootSaga)
+
+export default store

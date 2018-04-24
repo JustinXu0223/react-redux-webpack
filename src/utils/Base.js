@@ -4,27 +4,27 @@
  * @time 2018/4/3
  * @author JOKER XU
  */
-import { history } from './History';
+import { history } from './History'
 
-const win = window;
+const win = window
 
 export default {
   /** 跳转页面,替换路由
    * @params path {string} hash路径
    */
   replacePath(path) {
-    if (!path) return false;
-    history.replace(path);
+    if (!path) return false
+    history.replace(path)
   },
   /** 跳转到新页面
    * @params path {string} hash路径
    */
   linkToPath(path) {
-    if (!path) return false;
+    if (!path) return false
     if (path.indexOf('.html') > -1) { // 客户端的路由
-      win.location.href = path;
+      win.location.href = path
     } else {
-      history.push(path);
+      history.push(path)
     }
   },
   // 电话pipe
@@ -84,6 +84,6 @@ export default {
   transformKeyword(value, keyword) {
     if (!keyword || !value) return value
     const reg = new RegExp(`(${keyword})`, 'ig')
-    return value.replace(reg, `<span style="color: #ff4747;">${keyword}</span>`)
+    return value.replace(reg, `<span style="color: #ff4747">${keyword}</span>`)
   },
-};
+}
