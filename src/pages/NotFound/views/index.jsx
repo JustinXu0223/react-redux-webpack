@@ -4,11 +4,11 @@
  * @time 2018/3/15
  * @author JOKER XU
  **/
-import React from 'react';
-import { Button } from 'antd';
-import { Link } from 'react-router-dom';
-import styles from './index.less';
-import Img from '../../assets/images/404.svg';
+import React from 'react'
+import { Button } from 'antd'
+import { Link } from 'react-router-dom'
+import styles from './index.less'
+import Img from '../images/404.svg'
 
 const Error = () => (
   <div className={styles.error}>

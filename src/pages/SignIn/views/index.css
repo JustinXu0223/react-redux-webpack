@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.view {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(255,255,255,.7);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0, .7);
+}
+
+.head {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.logo {
+  width: 70px;
+  margin-right: 10px;
+  animation: logopin 10s infinite linear;
+}
+
+@keyframes logopin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #367AC4;
+}
+
+.section {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit {
+  width: 100%;
+}

@@ -18,20 +18,23 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: [resolve('src/index.js')],
+    app: ["babel-polyfill", resolve('src/index.js')],
     vendor: [
       'react',
       'react-dom',
-      'react-router',
+      'react-router-dom',
       'react-router-redux',
       'react-redux',
       'redux',
-      'redux-thunk'
+      'redux-saga'
     ]
   },
   resolve: {
     extensions: [' ', '.js', '.json', '.jsx', '.css', '.less', '.json'],
     modules: [resolve('src'), 'node_modules'], //绝对路径;
+    alias: {
+      '@': resolve('src')
+    },
   },
   module: {
     rules: [
