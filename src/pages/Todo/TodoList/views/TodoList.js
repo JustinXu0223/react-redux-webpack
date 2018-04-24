@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 //import {bindActionCreators} from 'redux'
 import TodoItem from './TodoItem.js'
 import { toggleTodo, removeTodo } from '../actions.js'
-import { FilterTypes } from '../../../../constants'
+import { FilterTypes } from '../../Filter'
 
 const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
   function mapList() {

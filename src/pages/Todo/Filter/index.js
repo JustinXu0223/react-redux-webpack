@@ -5,11 +5,13 @@
  * @author JOKER XU
  */
 import * as actions from './actions.js'
+import { FilterTypes } from './actionTypes'
 import reducer from './reducer.js'
 import view from './views/Filters.js'
 
 export {
   view as default,
   actions,
+  FilterTypes,
   reducer
 }
