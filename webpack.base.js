@@ -18,7 +18,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: ["babel-polyfill", resolve('src/index.js')],
+    app: ['babel-polyfill', resolve('src/index.js')],
     vendor: [
       'react',
       'react-dom',
