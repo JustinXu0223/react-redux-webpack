@@ -8,7 +8,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
-import rootSaga from '../sages'
+import rootSaga from '../sagas'
 
 import { reducer as todoReducer } from '../pages/Todo/TodoList'
 import { reducer as filterReducer } from '../pages/Todo/Filter'
