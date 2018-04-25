@@ -1,5 +1,4 @@
-import { SET_FILTER } from './actionTypes.js'
-import { FilterTypes } from '../../../constants/index'
+import { SET_FILTER, FilterTypes } from './actionTypes.js'
 
 export default (state = FilterTypes.ALL, action) => {
   switch (action.type) {
