@@ -9,6 +9,5 @@ import { fork } from 'redux-saga/effects'
 import { actions as HelloAction } from '../pages/Hello'
 
 export default function* rootSaga() {
-  yield fork(HelloAction.incrementAsync)
-  yield fork(HelloAction.decreaseAsync)
+  yield fork(HelloAction.HelloFlow)
 }

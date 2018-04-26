@@ -5,7 +5,7 @@
  * @author JOKER XU
  */
 import { message } from 'antd'
-import { put, call, take, select } from 'redux-saga/effects'
+import { put, call, take, fork } from 'redux-saga/effects'
 import * as Types from './actionTypes'
 import DemoService from '../../services/Demo'
 
@@ -54,4 +54,9 @@ export function* decreaseAsync() {
       hide()
     }
   }
+}
+
+export function* HelloFlow() {
+  yield fork(incrementAsync)
+  yield fork(decreaseAsync)
 }

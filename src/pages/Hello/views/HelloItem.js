@@ -6,7 +6,7 @@
  */
 import React from 'react'
 import { Button } from 'antd'
-import styles from './helloItem.less'
+import styles from './HelloItem.less'
 
 const HelloItem = ({ list = [], incrementAction, decreaseAction }) => {
   const mapList = () => {
