@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import HelloItem from './HelloItem'
 import Counter from './Counter'
 import { incrementAction, decreaseAction } from '../actions'
+import { getCounter } from '../selectors'
 import styles from './index.less'
 
 class Hello extends Component {
@@ -30,13 +31,9 @@ class Hello extends Component {
 
 const mapStateToProps = (state) => {
   const { hello: list } = state
-  let counter = 0
-  list.forEach(value => {
-    counter += Number(value.number)
-  })
   return {
     list,
-    counter,
+    counter: getCounter(state.hello),
   }
 }
 
