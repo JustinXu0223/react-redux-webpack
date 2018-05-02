@@ -12,6 +12,11 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin"); // 分离css
 const ManifestPlugin = require('webpack-manifest-plugin');
 const base = require('./webpack.base.js');
 
+const fs = require('fs');
+const lessToJs = require('less-vars-to-js');
+
+const themeVariables = lessToJs(fs.readFileSync(resolve('ant-theme-vars.less'), 'utf8'));
+
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
@@ -114,6 +119,8 @@ module.exports = merge(base, {
                 importLoaders: 2,
                 minimize: true,
                 sourceMap: true,
+                modifyVars: themeVariables,
+                javascriptEnabled: true,
               },
             },
           ],
@@ -206,6 +213,8 @@ module.exports = merge(base, {
                 importLoaders: 2,
                 minimize: true,
                 sourceMap: true,
+                modifyVars: themeVariables,
+                javascriptEnabled: true,
               },
             },
           ],

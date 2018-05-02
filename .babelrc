@@ -22,7 +22,7 @@
   },
   "plugins": [
     ["transform-runtime"],
-    ["import", {"libraryName": "antd", "style": "css"}]
+    ["import", {"libraryName": "antd", "style": true}]
   ],
   "sourceMaps": true
 }

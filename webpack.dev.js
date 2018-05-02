@@ -11,6 +11,11 @@ const merge = require('webpack-merge');
 const base = require('./webpack.base.js');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+const fs = require('fs');
+const lessToJs = require('less-vars-to-js');
+
+const themeVariables = lessToJs(fs.readFileSync(resolve('ant-theme-vars.less'), 'utf8'));
+
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
@@ -94,6 +99,8 @@ module.exports = merge(base, {
             loader: require.resolve('less-loader'),
             options: {
               importLoaders: 2,
+              modifyVars: themeVariables,
+              javascriptEnabled: true,
             },
           },
         ],
@@ -163,6 +170,8 @@ module.exports = merge(base, {
             loader: require.resolve('less-loader'),
             options: {
               importLoaders: 2,
+              modifyVars: themeVariables,
+              javascriptEnabled: true,
             },
           },
         ],
