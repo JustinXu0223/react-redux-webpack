@@ -6,10 +6,35 @@
   "author": "JOKER XU",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development BABEL_ENV=development BASE_API_ENDPOINT=http:xx webpack-dev-server --progress --colors --config webpack.dev.js",
-    "start": "npm run dev",
-    "release": "cross-env NODE_ENV=production BABEL_ENV=production  webpack -p --progress --colors --config webpack.prod.js",
+    "start": "better-npm-run dev",
+    "release": "webpack -p --progress --colors --config webpack.prod.js",
     "build": "npm run release"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "webpack-dev-server --progress --colors --config webpack.dev.js",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "development",
+        "BASE_API_ENDPOINT": "http:xx"
+      }
+    },
+    "build:stage": {
+      "command": "npm run release",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "production",
+        "BASE_API_ENDPOINT": "http:qwe"
+      }
+    },
+    "build:prod": {
+      "command": "npm run release",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "production",
+        "BASE_API_ENDPOINT": "http:12323"
+      }
+    }
   },
   "keywords": [],
   "devDependencies": {
@@ -25,7 +50,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.0",
-    "cross-env": "^5.1.4",
     "css-loader": "^0.28.10",
     "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",
@@ -57,6 +81,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
+    "better-npm-run": "^0.1.0",
     "classnames": "^2.2.5",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
