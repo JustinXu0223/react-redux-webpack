@@ -6,9 +6,9 @@
   "author": "JOKER XU",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development BABEL_ENV=development webpack-dev-server --progress --colors --config webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development BABEL_ENV=development BASE_API_ENDPOINT=http:xx webpack-dev-server --progress --colors --config webpack.dev.js",
     "start": "npm run dev",
-    "release": "cross-env NODE_ENV=production BABEL_ENV=production webpack -p --progress --colors --config webpack.prod.js",
+    "release": "cross-env NODE_ENV=production BABEL_ENV=production  webpack -p --progress --colors --config webpack.prod.js",
     "build": "npm run release"
   },
   "keywords": [],

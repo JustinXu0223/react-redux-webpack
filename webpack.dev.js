@@ -194,8 +194,9 @@ module.exports = merge(base, {
     new OpenBrowserPlugin({url: 'http://localhost:' + port}),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development'),
-        'BASE_API_ENDPOINT' : JSON.stringify('http://192.168.1.29:8849')
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'BABEL_ENV': JSON.stringify(process.env.BABEL_ENV || 'development'),
+        'BASE_API_ENDPOINT' : JSON.stringify(process.env.BASE_API_ENDPOINT)
       },
     }),
   ],
