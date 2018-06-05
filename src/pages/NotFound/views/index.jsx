@@ -21,7 +21,7 @@ const Error = () => (
       </Button>
     </div>
   </div>
-);
+)
 
-export default Error;
+export default Error
 

@@ -6,10 +6,10 @@
   "author": "JOKER XU",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint \"**/*.{js,jsx}\" --quiet",
     "start": "better-npm-run dev",
     "release": "webpack -p --progress --colors --config webpack.prod.js",
-    "build": "npm run release",
-    "lint": "eslint src"
+    "build": "npm run release"
   },
   "pre-commit": [
     "lint"

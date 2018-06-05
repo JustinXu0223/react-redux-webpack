@@ -24,8 +24,9 @@ class SignIn extends Component {
   // 点击确定
   handleOk = () => {
     const { form: { validateFieldsAndScroll } } = this.props
-    validateFieldsAndScroll((err, { username, password }) => {
+    validateFieldsAndScroll((err) => {
       if (err) return false
+      // { username, password }
       this.setState({ loading: true })
     })
   }
