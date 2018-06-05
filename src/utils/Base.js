@@ -72,7 +72,7 @@ export default {
       const i = document.createElement('iframe')
       i.src = '/static/favicon.ico'
       i.style.display = 'none'
-      i.onload = function () {
+      i.onload = () => {
         setTimeout(function () {
           i.remove()
         }, 9)

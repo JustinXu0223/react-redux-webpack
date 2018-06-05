@@ -30,7 +30,7 @@ const checkStatus = response => {
 const handleError = promise => {
   return promise
     .then(response => checkStatus(response))
-    .catch((error) => {
+    .catch(() => {
       // const { message: status } = error
       // TODO you can handle the common error here
       throw new Error('服务器发生未知错误')
@@ -70,7 +70,7 @@ export default {
    * @param headers
    * @returns Promise<any>
    */
-  get: function (url, params, headers = getHeaders()) {
+  get(url, params, headers = getHeaders()) {
     if (params) {
       const paramsArray = []
       // encodeURIComponent
@@ -93,7 +93,7 @@ export default {
    * @param headers
    * @returns Promise<any>
    */
-  postForm: function (url, formData, headers = getHeaders()) {
+  postForm(url, formData, headers = getHeaders()) {
     const promise = fetch(getUrl(url), {
       method: HttpMethod.POST,
       headers: headers,
@@ -107,7 +107,7 @@ export default {
    * @param headers
    * @returns Promise<any>
    * */
-  postJSON: function (url, params, headers = getHeaders()) {
+  postJSON(url, params, headers = getHeaders()) {
     const promise = fetch(getUrl(url), {
       method: HttpMethod.POST,
       headers: headers,
@@ -121,7 +121,7 @@ export default {
    * @param headers
    * @returns Promise<any>
    * */
-  patchJSON: function (url, params, headers = getHeaders()) {
+  patchJSON(url, params, headers = getHeaders()) {
     const promise = fetch(getUrl(url), {
       method: HttpMethod.PATCH,
       headers: headers,

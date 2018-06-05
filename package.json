@@ -8,8 +8,12 @@
   "scripts": {
     "start": "better-npm-run dev",
     "release": "webpack -p --progress --colors --config webpack.prod.js",
-    "build": "npm run release"
+    "build": "npm run release",
+    "lint": "eslint src"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "betterScripts": {
     "dev": {
       "command": "webpack-dev-server --progress --colors --config webpack.dev.js",
@@ -85,6 +89,7 @@
     "classnames": "^2.2.5",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
+    "pre-commit": "^1.2.2",
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-css-modules": "^4.7.2",

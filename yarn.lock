@@ -1399,6 +1399,10 @@ browserslist@^3.1.1:
     caniuse-lite "^1.0.30000809"
     electron-to-chromium "^1.3.33"
 
+buffer-from@^1.0.0:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/buffer-from/download/buffer-from-1.1.0.tgz#87fcaa3a298358e0ade6e442cfce840740d1ad04"
+
 buffer-indexof@^1.0.0:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/buffer-indexof/download/buffer-indexof-1.1.1.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
@@ -1769,6 +1773,15 @@ compression@^1.5.2:
 concat-map@0.0.1:
   version "0.0.1"
   resolved "http://registry.npm.taobao.org/concat-map/download/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
+
+concat-stream@^1.4.7:
+  version "1.6.2"
+  resolved "http://registry.npm.taobao.org/concat-stream/download/concat-stream-1.6.2.tgz#904bdf194cd3122fc675c77fc4ac3d4ff0fd1a34"
+  dependencies:
+    buffer-from "^1.0.0"
+    inherits "^2.0.3"
+    readable-stream "^2.2.2"
+    typedarray "^0.0.6"
 
 concat-stream@^1.5.0, concat-stream@^1.6.0:
   version "1.6.1"
@@ -4773,6 +4786,10 @@ os-locale@^2.0.0:
     lcid "^1.0.0"
     mem "^1.1.0"
 
+os-shim@^0.1.2:
+  version "0.1.3"
+  resolved "http://registry.npm.taobao.org/os-shim/download/os-shim-0.1.3.tgz#6b62c3791cf7909ea35ed46e17658bb417cb3917"
+
 os-tmpdir@^1.0.0, os-tmpdir@^1.0.1, os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/os-tmpdir/download/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
@@ -5272,6 +5289,14 @@ postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.19:
     chalk "^2.3.1"
     source-map "^0.6.1"
     supports-color "^5.2.0"
+
+pre-commit@^1.2.2:
+  version "1.2.2"
+  resolved "http://registry.npm.taobao.org/pre-commit/download/pre-commit-1.2.2.tgz#dbcee0ee9de7235e57f79c56d7ce94641a69eec6"
+  dependencies:
+    cross-spawn "^5.0.1"
+    spawn-sync "^1.0.15"
+    which "1.2.x"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -6492,6 +6517,13 @@ source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
   resolved "http://registry.npm.taobao.org/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 
+spawn-sync@^1.0.15:
+  version "1.0.15"
+  resolved "http://registry.npm.taobao.org/spawn-sync/download/spawn-sync-1.0.15.tgz#b00799557eb7fb0c8376c29d44e8a1ea67e57476"
+  dependencies:
+    concat-stream "^1.4.7"
+    os-shim "^0.1.2"
+
 spdx-correct@^3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/spdx-correct/download/spdx-correct-3.0.0.tgz#05a5b4d7153a195bc92c3c425b69f3b2a9524c82"
@@ -7224,6 +7256,12 @@ which-module@^1.0.0:
 which-module@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/which-module/download/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"
+
+which@1.2.x:
+  version "1.2.14"
+  resolved "http://registry.npm.taobao.org/which/download/which-1.2.14.tgz#9a87c4378f03e827cecaf1acdf56c736c01c14e5"
+  dependencies:
+    isexe "^2.0.0"
 
 which@^1.2.9:
   version "1.3.0"
