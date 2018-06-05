@@ -73,7 +73,7 @@ export default {
       i.src = '/static/favicon.ico'
       i.style.display = 'none'
       i.onload = () => {
-        setTimeout(function () {
+        setTimeout(() => {
           i.remove()
         }, 9)
       }
