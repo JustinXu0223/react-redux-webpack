@@ -27,7 +27,7 @@ module.exports = merge(base, {
     path: resolve('dist'), // 输出的文件地址
     publicPath: './'
   },
-  devtool: 'source-map',
+  devtool: 'cheap-source-map',
   module: {
     rules: [
       {
